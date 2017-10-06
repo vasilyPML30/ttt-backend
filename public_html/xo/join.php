@@ -16,9 +16,9 @@
 
   mysqli_query($link, "CREATE TABLE xobrd$name(number INT, x INT, y INT)");
   
-  $r = mysqli_query($link, "SELECT player1 FROM xoBoards WHERE name = \"$name\"");
-  $otherPlayer = strval(mysqli_fetch_assoc($r)["player1"]);
-
-  print($otherPlayer);
+  $r = mysqli_query($link, "SELECT player1, height, width, length FROM xoBoards WHERE name = \"$name\"");
+  $res = mysqli_fetch_assoc($r);
+  
+  print($res["player1"] . " " . $res["height"] . " " . $res["width"] . " " . $res["length"]);
 
 ?>
